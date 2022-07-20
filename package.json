@@ -1,0 +1,26 @@
+{
+  "name": "ecommerce-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mollymcmuffin/ecommerce-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mollymcmuffin/ecommerce-api/issues"
+  },
+  "homepage": "https://github.com/mollymcmuffin/ecommerce-api#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.5",
+    "nodemon": "^2.0.19"
+  }
+}
