@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const { verifyToken } = require("./verifyToken");
+const { verifyToken, verifyTokenAndAuthorisation } = require("./verifyToken");
 
-router.put("/:id", verifyToken);
+router.put("/:id", verifyTokenAndAuthorisation, (req, res) => {});
 
 module.exports = router;
