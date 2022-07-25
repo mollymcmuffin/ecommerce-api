@@ -1,4 +1,3 @@
-const { timeStamp } = require("console");
 const mongoose = require("mongoose");
 
 const CartSchema = new mongoose.Schema(
@@ -16,7 +15,7 @@ const CartSchema = new mongoose.Schema(
       },
     ],
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 
-module.exports = mongoose.model("Product", CartSchema);
+module.exports = mongoose.model("Cart", CartSchema);

@@ -1,8 +1,9 @@
 const jwt = require("jsonwebtoken");
 
 const verifyToken = (req, res, next) => {
-  const authHeader = req.header.token;
+  const authHeader = req.headers.token;
   if (authHeader) {
+    const token = authHeader.split(" ")[1];
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
       //the user is the payload containing the data when signed.
       if (err) {
@@ -27,4 +28,18 @@ const verifyTokenAndAuthorisation = (req, res, next) => {
   });
 };
 
-module.exports = { verifyToken, verifyTokenAndAuthorisation };
+const verifyTokenAndAdmin = (req, res, next) => {
+  verifyToken(req, res, () => {
+    if (req.user.isAdmin) {
+      next();
+    } else {
+      res.status(403).json("You are not allowed to do that!");
+    }
+  });
+};
+
+module.exports = {
+  verifyToken,
+  verifyTokenAndAuthorisation,
+  verifyTokenAndAdmin,
+};

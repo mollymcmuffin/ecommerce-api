@@ -1,4 +1,3 @@
-const { timeStamp } = require("console");
 const mongoose = require("mongoose");
 
 const OrderSchema = new mongoose.Schema(
@@ -19,7 +18,7 @@ const OrderSchema = new mongoose.Schema(
     address: { type: Object, required: true },
     status: { type: String, default: "pending" },
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("Order", OrderSchema);
