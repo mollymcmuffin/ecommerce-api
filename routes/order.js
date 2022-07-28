@@ -8,7 +8,7 @@ const Order = require("../models/Order");
 
 //CREATE
 router.post("/", verifyTokenAndAdmin, async (req, res) => {
-  const newOrder = new Cart(req.body);
+  const newOrder = new Order(req.body);
   try {
     const savedOrder = await newOrder.save();
     res.status(200).json(savedOrder);
@@ -20,7 +20,7 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
 //UPDATE
 router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
   try {
-    const updatedOrder = await Product.findByIdAndUpdate(
+    const updatedOrder = await Order.findByIdAndUpdate(
       req.params.id,
       { $set: req.body },
       { new: true }
